@@ -1,6 +1,7 @@
 import React from 'react';
 import Auth from '../util/Auth';
 import { Redirect } from 'react-router';
+import Voting from './voting'
 
 
 class VotingPage extends React.Component{
@@ -23,6 +24,7 @@ class VotingPage extends React.Component{
             <div>
                 Voting page
                 <button onClick={this.signout}> Sign out</button>
+                <Voting/>
             </div>
         )
     }
