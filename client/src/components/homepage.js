@@ -24,19 +24,17 @@ export default class Homepage extends Component{
 
     loginHandler = (e) => {
         if(this.state.studentID === ''|| this.state.password=== '') return ;
-        //e.preventDefault();
         //Auth.authenticate({name:"Senanu",id:"3"});
         //  this.setState({ isLoggedIn: true });
-        //console.log(this.state)
         axios.post('/login', this.state)
-        .then( response =>{ const message = response.data
-            console.log(message)
-        })
-        // .then((response)=>{
-        //     console.log(response.data.message)
-        //     Auth.authenticate({id:this.state.studentID})
-        //     this.setState({isLoggedIn: response.data.message})
-        // })
+        .then( (response) =>{ 
+            console.log(response.data.isLoggedIn)
+            Auth.authenticate({name:this.state.studentID});
+            this.setState({ isLoggedIn: response.data.isLoggedIn });
+            
+         }) 
+         e.preventDefault(); 
+       
     }
 
  
